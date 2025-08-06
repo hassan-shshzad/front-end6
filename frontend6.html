@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beautiful Blog Homepage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111827;
+      --primary: #4f46e5;
+      --secondary: #6366f1;
+      --accent: #f3f4f6;
+      --card-bg: #ffffff;
+      --btn-bg: #4f46e5;
+      --btn-text: #fff;
+    }
+
+    body.dark {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --primary: #818cf8;
+      --secondary: #a5b4fc;
+      --accent: #1e293b;
+      --card-bg: #1f2937;
+      --btn-bg: #334155;
+      --btn-text: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.4s, color 0.4s;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 20px 0;
+      animation: slideDown 1s ease forwards;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .toggle-theme {
+      font-size: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      height: 350px;
+      border-radius: 12px;
+      overflow: hidden;
+      background-image: url('https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 40px;
+      animation: fadeIn 1s ease-in;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .hero-overlay h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero-overlay p {
+      font-size: 18px;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .post-card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .post-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .post-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .post-content {
+      padding: 18px;
+    }
+
+    .post-content h2 {
+      font-size: 20px;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .post-content p {
+      font-size: 14px;
+      color: var(--text);
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      padding: 10px 14px;
+      border-radius: 5px;
+      font-size: 14px;
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 20px 0;
+      border-top: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    footer a {
+      margin: 0 10px;
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    footer a:hover {
+      color: var(--primary);
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header>
+      <div class="logo">🌐 MyBlog</div>
+      <nav>
+        <div class="nav-links">
+          <a href="#">Home</a>
+          <a href="#">Articles</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
+        <button class="toggle-theme">🌙</button>
+
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-overlay">
+        <h1>Welcome to My Blog</h1>
+        <p>Get the latest articles on Web, Design, and Technology</p>
+      </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-grid">
+      <div class="post-card">
+        <img src="https://i.pinimg.com/1200x/82/50/1a/82501adbcba61886c1c6e4913b025200.jpg" alt="Coding">
+        <div class="post-content">
+          <h2>Mastering HTML & CSS</h2>
+          <p>Learn how to structure and style beautiful web pages from scratch with clean, semantic code.</p>
+          <a href="#" class="btn">Read More</a>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <img src="https://i.pinimg.com/1200x/e6/96/45/e696454a43aa7d916cc2771699ebcf28.jpg" alt="Design">
+        <div class="post-content">
+          <h2>UI/UX Design Principles</h2>
+          <p>Discover the fundamentals of intuitive user experiences and beautiful interface design.</p>
+          <a href="#" class="btn">Read More</a>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <img src="https://i.pinimg.com/736x/45/a4/48/45a4486427a3389352930af3938c1a1b.jpg" alt="JS">
+        <div class="post-content">
+          <h2>JavaScript for Beginners</h2>
+          <p>A beginner's guide to learning JavaScript and adding interactivity to your websites.</p>
+          <a href="#" class="btn">Read More</a>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <img src="https://i.pinimg.com/736x/5c/44/69/5c446992bfc31bb4b18d7972b5977e35.jpg" alt="Python">
+        <div class="post-content">
+          <h2>Python Web Development</h2>
+          <p>Get started with Python frameworks like Django and Flask to build powerful web apps.</p>
+          <a href="#" class="btn">Read More</a>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <img src="https://i.pinimg.com/736x/38/68/24/3868241218be64688afd19a3a423fc10.jpg" alt="Tech">
+        <div class="post-content">
+          <h2>Tech Trends in 2025</h2>
+          <p>Explore the future of technology — from AI to Web3 and beyond in the digital era.</p>
+          <a href="#" class="btn">Read More</a>
+        </div>
+      </div>
+
+            <div class="post-card">
+        <img src="https://i.pinimg.com/1200x/b1/1e/9f/b11e9f155bd484a5c85d989d52ff8c1a.jpg" alt="Tech">
+        <div class="post-content">
+          <h2>Machine Learning</h2>
+          <p>Explore the future of technology — from AI to ML and beyond in the digital era.</p>
+          <a href="#" class="btn">Read More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 MyBlog — <a href="#">About</a> | <a href="#">Contact</a> | <a href="#">Terms</a></p>
+    </footer>
+  </div>
+
+  <script>
+    const toggleBtn = document.querySelector('.toggle-theme');
+    toggleBtn.onclick = () => {
+      document.body.classList.toggle('dark');
+    };
+  </script>
+</body>
+</html>
